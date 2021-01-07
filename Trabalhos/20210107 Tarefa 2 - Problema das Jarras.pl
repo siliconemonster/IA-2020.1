@@ -48,3 +48,7 @@ acao((J1, J2), passar21, (J1a, J2a)) :-
     4 - J1 >= J2,
     J2a is 0,					%lida com o problema da jarra 2 com litro negativo
     J1a is J1 + J2.
+
+% c)
+
+vizinho(N, FilhosN) :- findall(N2, acao(N, _, N2), FilhosN). % N2 na primeira posição do findall porque quero os estados pós ações
