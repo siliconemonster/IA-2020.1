@@ -54,3 +54,18 @@ acao((J1, J2), passar21, (J1a, J2a)) :-
 % c)
 
 vizinho(N, FilhosN) :- findall(N2, acao(N, _, N2), FilhosN). % N2 na primeira posição do findall porque quero os estados pós ações
+
+% d)
+
+% largura
+addFronteiraL(FilhosN, F1, F2) :- append(F1, FilhosN, F2).
+
+bfs([Node|_]) :- objetivo(Node), !.
+bfs([Node|F1]) :-
+    vizinho(Node, FilhosN),
+    addFronteiraL(FilhosN, F1, F2),
+    bfs(F2).
+
+% Consulta: ?- (bfs([0,0])).
+% O programa só retorna true/false. No caso do objetivo determinado pela letra a), só retorna false.
+% Quando a busca é executada, a árvore não está sendo salva. Este é o motivo desse retorno.
