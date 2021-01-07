@@ -110,3 +110,26 @@ dfsConfig([Node|F1], [Node|L]) :-
 buscaProfConfig(Inicio, L) :- dfsConfig([Inicio], L).	% L é uma lista para guardar os estados
 % Consulta: ?- buscaProfConfig((0,0), S).
 % Ainda repete os estados, continua em loop
+
+
+% f)
+
+% predicado diferença de listas que foi resolvido na lista de exercícios de Prolog
+member(X, [X|_]) :- !.
+member(X, [_|T]) :- member(X, T).
+
+dif([], _, []) :- !.
+dif(L, [], L) :- !.
+dif(L, L, []) :- !.
+dif([H1|T1], L2, L3) :- member(H1, L2), !, dif(T1, L2, L3), !.
+dif([H1|T1], L2, [H1|T2]) :- dif(T1, L2, T2).
+
+bfsEstados([Node|_], _, [Node]) :- objetivo(Node).
+bfsEstados([Node|F1], Marcados, [Node|R]) :-
+    vizinho(Node, FilhosN),
+    dif(FilhosN, Marcados, FilhosUnicos),
+    append(FilhosUnicos, Marcados, Marcados1),
+    addFronteiraL(FilhosUnicos, F1, F2),
+    bfsEstados(F2, Marcados1, R).
+
+buscaLargEstados(Inicio, R) :- bfsEstados([Inicio], Inicio, R).
