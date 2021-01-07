@@ -79,3 +79,7 @@ dfs([Node|F1]) :-
     vizinho(Node, FilhosN),
     addFronteiraL(FilhosN, F1, F2),
     dfs(F2).
+
+
+% Consulta: ?- (dfs([0,0])).
+% Novamente o programa só retorna true/false, também por a árvore não estar sendo salva.
