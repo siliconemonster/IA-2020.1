@@ -90,11 +90,23 @@ buscaProf(Inicio) :- dfs([Inicio]).
 % e)
 
 % largura
-bfsConfig([Node|_], [Node]) :- objetivo(Node). % sem o ! para gerar outras possíveis soluções
+bfsConfig([Node|_], [Node]) :- objetivo(Node).		% sem o ! para gerar outras possíveis soluções
 bfsConfig([Node|F1], [Node|L]) :-
     vizinho(Node, FilhosN),
     addFronteiraL(FilhosN, F1, F2),
     bfsConfig(F2, L).
 
-buscaLargConfig(Inicio, L) :- bfsConfig([Inicio], L).  % L é uma lista para guardar os estados
+buscaLargConfig(Inicio, L) :- bfsConfig([Inicio], L).	% L é uma lista para guardar os estados
 % Consulta: ?- buscaLargConfig((0,0), S).
+
+% ------------------ versão com busca em profundidade pedida na letra g
+% profundidade
+dfsConfig([Node|_], [Node]) :- objetivo(Node). 		% sem o ! para gerar outras possíveis soluções
+dfsConfig([Node|F1], [Node|L]) :-
+    vizinho(Node, FilhosN),
+    addFronteiraP(FilhosN, F1, F2),
+    dfsConfig(F2, L).
+
+buscaProfConfig(Inicio, L) :- dfsConfig([Inicio], L).	% L é uma lista para guardar os estados
+% Consulta: ?- buscaProfConfig((0,0), S).
+% Ainda repete os estados, continua em loop
