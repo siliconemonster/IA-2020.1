@@ -69,3 +69,13 @@ bfs([Node|F1]) :-
 % Consulta: ?- (bfs([0,0])).
 % O programa só retorna true/false. No caso do objetivo determinado pela letra a), só retorna false.
 % Quando a busca é executada, a árvore não está sendo salva. Este é o motivo desse retorno.
+
+% ------------------ versão com busca em profundidade pedida na letra g
+% profundidade
+addFronteiraP(FilhosN, F1, F2) :- append(FilhosN, F1, F2).
+
+dfs([Node|_]) :- objetivo(Node), !.
+dfs([Node|F1]) :-
+    vizinho(Node, FilhosN),
+    addFronteiraL(FilhosN, F1, F2),
+    dfs(F2).
