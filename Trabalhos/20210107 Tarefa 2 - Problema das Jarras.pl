@@ -86,4 +86,4 @@ buscaProf(Inicio) :-
     dfs([Inicio]).
 
 % Consulta: ?- buscaProf((0,0)).
-% Ocorre um estouro de pilha, pois passa-se novamente por estados já gerados anteriormente
+% Ocorre um estouro de pilha, pois passa-se novamente por estados já gerados antes
