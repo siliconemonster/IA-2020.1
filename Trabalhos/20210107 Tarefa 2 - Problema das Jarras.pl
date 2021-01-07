@@ -11,5 +11,5 @@
 
 % a)
 
-objetivo((_, 2)). % objetivo( (Qual jarra, Quantos litros) )
+objetivo((J1, 2)). % objetivo( (Qual jarra, Quantos litros) )
 
