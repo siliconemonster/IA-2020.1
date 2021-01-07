@@ -66,8 +66,7 @@ bfs([Node|F1]) :-
     addFronteiraL(FilhosN, F1, F2),
     bfs(F2).
 
-buscaLarg(Inicio) :-
-    bfs([Inicio]).
+buscaLarg(Inicio) :- bfs([Inicio]).
 
 % Consulta: ?- buscaLarg((0,0)).
 % O programa só retorna true/false, pois quando a busca é executada, a árvore não está sendo salva em nenhum lugar.
@@ -82,8 +81,7 @@ dfs([Node|F1]) :-
     addFronteiraP(FilhosN, F1, F2),
     dfs(F2).
 
-buscaProf(Inicio) :-
-    dfs([Inicio]).
+buscaProf(Inicio) :- dfs([Inicio]).
 
 % Consulta: ?- buscaProf((0,0)).
 % Ocorre um estouro de pilha, pois passa-se novamente por estados já gerados antes
