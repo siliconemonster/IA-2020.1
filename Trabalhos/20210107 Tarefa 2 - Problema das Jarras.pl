@@ -47,3 +47,4 @@ acao((J1, J2), passar21, (J1a, J2a)) :-
     J2 > 0,					% Não pode estar totalmente vazia
     4 - J1 >= J2,
     J2a is 0,					%lida com o problema da jarra 2 com litro negativo
+    J1a is J1 + J2.
