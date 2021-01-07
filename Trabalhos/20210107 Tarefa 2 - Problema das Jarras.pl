@@ -66,9 +66,11 @@ bfs([Node|F1]) :-
     addFronteiraL(FilhosN, F1, F2),
     bfs(F2).
 
-% Consulta: ?- (bfs([0,0])).
-% O programa só retorna true/false. No caso do objetivo determinado pela letra a), só retorna false.
-% Quando a busca é executada, a árvore não está sendo salva. Este é o motivo desse retorno.
+buscaLarg(Inicio) :-
+    bfs([Inicio]).
+
+% Consulta: ?- buscaLarg((0,0)).
+% O programa só retorna true/false, pois quando a busca é executada, a árvore não está sendo salva em nenhum lugar.
 
 % ------------------ versão com busca em profundidade pedida na letra g
 % profundidade
@@ -77,9 +79,11 @@ addFronteiraP(FilhosN, F1, F2) :- append(FilhosN, F1, F2).
 dfs([Node|_]) :- objetivo(Node), !.
 dfs([Node|F1]) :-
     vizinho(Node, FilhosN),
-    addFronteiraL(FilhosN, F1, F2),
+    addFronteiraP(FilhosN, F1, F2),
     dfs(F2).
 
+buscaProf(Inicio) :-
+    dfs([Inicio]).
 
-% Consulta: ?- (dfs([0,0])).
-% Novamente o programa só retorna true/false, também por a árvore não estar sendo salva.
+% Consulta: ?- buscaProf((0,0)).
+% Ocorre um estouro de pilha, pois passa-se novamente por estados já gerados anteriormente
