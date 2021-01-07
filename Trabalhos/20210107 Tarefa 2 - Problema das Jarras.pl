@@ -114,6 +114,7 @@ buscaProfConfig(Inicio, L) :- dfsConfig([Inicio], L).	% L é uma lista para guar
 
 % f)
 
+% largura
 % predicado diferença de listas que foi resolvido na lista de exercícios de Prolog
 member(X, [X|_]) :- !.
 member(X, [_|T]) :- member(X, T).
@@ -133,3 +134,15 @@ bfsEstados([Node|F1], Marcados, [Node|R]) :-
     bfsEstados(F2, Marcados1, R).
 
 buscaLargEstados(Inicio, R) :- bfsEstados([Inicio], Inicio, R).
+
+% ------------------ versão com busca em profundidade pedida na letra g
+% profundidade
+dfsEstados([Node|_], _, [Node]) :- objetivo(Node).
+dfsEstados([Node|F1], Marcados, [Node|R]) :-
+    vizinho(Node, FilhosN),
+    dif(FilhosN, Marcados, FilhosUnicos),
+    append(FilhosUnicos, Marcados, Marcados1),
+    addFronteiraP(FilhosUnicos, F1, F2),
+    dfsEstados(F2, Marcados1, R).
+
+buscaProfEstados(Inicio, R) :- dfsEstados([Inicio], [Inicio], R).
