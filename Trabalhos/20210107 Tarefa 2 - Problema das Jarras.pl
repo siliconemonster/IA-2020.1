@@ -85,3 +85,16 @@ buscaProf(Inicio) :- dfs([Inicio]).
 
 % Consulta: ?- buscaProf((0,0)).
 % Ocorre um estouro de pilha, pois passa-se novamente por estados já gerados antes
+
+
+% e)
+
+% largura
+bfsConfig([Node|_], [Node]) :- objetivo(Node). % sem o ! para gerar outras possíveis soluções
+bfsConfig([Node|F1], [Node|L]) :-
+    vizinho(Node, FilhosN),
+    addFronteiraL(FilhosN, F1, F2),
+    bfsConfig(F2, L).
+
+buscaLargConfig(Inicio, L) :- bfsConfig([Inicio], L).  % L é uma lista para guardar os estados
+% Consulta: ?- buscaLargConfig((0,0), S).
