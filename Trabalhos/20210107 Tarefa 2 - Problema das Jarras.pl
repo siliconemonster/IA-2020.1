@@ -1,4 +1,4 @@
-% Tarefa 2 - Problema das Jarras (2020.01.06)
+% Tarefa 2 - Problema das Jarras (2021.01.06)
 %
 % A jarra 1 tem capacidade de 4 litros e a jarra 2 tem capacidade de 3 litros.
 % Inicialmente, as jarras estão vazias.

@@ -1,4 +1,4 @@
-% Tarefa 3 - Jogo dos 15 (2020.01.12)
+% Tarefa 3 - Jogo dos 15 (2021.01.12)
 
 estado( [[A,B,C,D],   % Nessa situação, posso ter qualquer número em qualquer lugar, com exceção no espaço branco
 	 [E,F,G,H],
