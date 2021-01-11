@@ -10,6 +10,8 @@ estado([[A,B,C,D],           % Nessa situação, posso ter qualquer número em q
 	[I,J,K,L],
 	[M,N,O,v]]).
 
+no(Estado, Pai, Acao, Custo).
+
 % Movimentos:
 % Nessa parte, a ação de movimentar é do tipo movimento(X,Y), onde X é o estado antes desse movimento e Y é o estado depois
 	
