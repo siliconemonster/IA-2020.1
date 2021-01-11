@@ -76,3 +76,15 @@ acao(Antes, direita, Depois, 1)	:- direita(Antes, Depois).
 acao(Antes, esquerda, Depois, 1) :- esquerda(Antes, Depois).
 acao(Antes, cima, Depois, 1) :- cima(Antes, Depois).
 acao(Antes, baixo, Depois, 1) :- baixo(Antes, Depois).
+
+
+% Heurísticas - - - PREDICADO PARA APLICAR HEURÍSTICAS Y DAR COMO RESULTADO Fn
+fn(NoAtual, heuristica1, Fn) :-
+    NoAtual = no(EstadoAtual,_,_,Gn),
+	heuristica1(EstadoAtual, Hn),
+	Fn is Gn + Hn.
+
+fn(NoAtual, heuristica2, Fn) :-
+    NoAtual = no(EstadoAtual,_,_,Gn),
+	heuristica2(EstadoAtual, Hn),
+	Fn is Gn + Hn.
