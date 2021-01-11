@@ -41,7 +41,6 @@ esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,v,N,O]], [[A,B,C,D],[E,F,G,H],[I,J,K,
 esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]], [[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,v,N,O]]).
 esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,O,v]], [[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]]).
 
-
 % andar com o vazio para cima
 cima([[A,B,C,D],[v,E,F,G],[H,I,J,K],[L,M,N,O]], [[v,B,C,D],[A,E,F,G],[H,I,J,K],[L,M,N,O]]).
 cima([[A,B,C,D],[E,v,F,G],[H,I,J,K],[L,M,N,O]], [[A,v,C,D],[E,B,F,G],[H,I,J,K],[L,M,N,O]]).
@@ -55,3 +54,17 @@ cima([[A,B,C,D],[E,F,G,H],[I,J,K,L],[v,M,N,O]], [[A,B,C,D],[E,F,G,H],[v,J,K,L],[
 cima([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,v,N,O]], [[A,B,C,D],[E,F,G,H],[I,v,K,L],[M,J,N,O]]).
 cima([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]], [[A,B,C,D],[E,F,G,H],[I,J,v,L],[M,N,K,O]]).
 cima([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,O,v]], [[A,B,C,D],[E,F,G,H],[I,J,K,v],[M,N,O,L]]).
+
+% andar com o vazio para baixo
+baixo([[v,A,B,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]], [[D,A,B,C],[v,E,F,G],[H,I,J,K],[L,M,N,O]]).
+baixo([[A,v,B,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]], [[A,E,B,C],[D,v,F,G],[H,I,J,K],[L,M,N,O]]).
+baixo([[A,B,v,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]], [[A,B,F,C],[D,E,v,G],[H,I,J,K],[L,M,N,O]]).
+baixo([[A,B,C,v],[D,E,F,G],[H,I,J,K],[L,M,N,O]], [[A,B,C,G],[D,E,F,v],[H,I,J,K],[L,M,N,O]]).
+baixo([[A,B,C,D],[v,E,F,G],[H,I,J,K],[L,M,N,O]], [[A,B,C,D],[H,E,F,G],[v,I,J,K],[L,M,N,O]]).
+baixo([[A,B,C,D],[E,v,F,G],[H,I,J,K],[L,M,N,O]], [[A,B,C,D],[E,I,F,G],[H,v,J,K],[L,M,N,O]]).
+baixo([[A,B,C,D],[E,F,v,G],[H,I,J,K],[L,M,N,O]], [[A,B,C,D],[E,F,J,G],[H,I,v,K],[L,M,N,O]]).
+baixo([[A,B,C,D],[E,F,G,v],[H,I,J,K],[L,M,N,O]], [[A,B,C,D],[E,F,G,K],[H,I,J,v],[L,M,N,O]]).
+baixo([[A,B,C,D],[E,F,G,H],[v,I,J,K],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[L,I,J,K],[v,M,N,O]]).
+baixo([[A,B,C,D],[E,F,G,H],[I,v,J,K],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[I,M,J,K],[L,v,N,O]]).
+baixo([[A,B,C,D],[E,F,G,H],[I,J,v,K],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[I,J,N,K],[L,M,v,O]]).
+baixo([[A,B,C,D],[E,F,G,H],[I,J,K,v],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[I,J,K,O],[L,M,N,v]]).
