@@ -79,12 +79,12 @@ acao(Antes, baixo, Depois, 1) :- baixo(Antes, Depois).
 
 
 % Heurísticas - - - PREDICADO PARA APLICAR HEURÍSTICAS Y DAR COMO RESULTADO Fn
-fn(NoAtual, heuristica1, Fn) :-
+fn(NoAtual, Fn, heuristica1) :-
     	NoAtual = no(EstadoAtual,_,_,Gn),
 	heuristica1(EstadoAtual, Hn),
 	Fn is Gn + Hn.
 
-fn(NoAtual, heuristica2, Fn) :-
+fn(NoAtual, Fn, heuristica2) :-
     	NoAtual = no(EstadoAtual,_,_,Gn),
 	heuristica2(EstadoAtual, Hn),
 	Fn is Gn + Hn.
@@ -96,10 +96,10 @@ heuristica1(Atual, Hn) :-
 	flatten(Final, FinalFlatten),
 	foraLugar(AtualFlatten,FinalFlatten,Hn).
 
-foraLugar([],[],0). 
-foraLugar([0|T1],[0|T2],Numero) :- foraLugar(T1,T2,Numero). 
-foraLugar([H|T1],[H|T2],Numero) :- foraLugar(T1,T2,Numero). 
-foraLugar([H1|T1],[H2|T2],Numero) :-
+foraLugar([], [], 0). 
+foraLugar([0|T1], [0|T2], Numero) :- foraLugar(T1, T2, Numero). 
+foraLugar([H|T1], [H|T2], Numero) :- foraLugar(T1, T2, Numero). 
+foraLugar([H1|T1], [H2|T2], Numero) :-
 	H1 \== H2,
-	foraLugar(T1,T2,N),
+	foraLugar(T1, T2, N),
 	Numero is N+1.
