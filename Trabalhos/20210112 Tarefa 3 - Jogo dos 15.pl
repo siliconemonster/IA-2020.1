@@ -1,14 +1,14 @@
 % Tarefa 3 - Jogo dos 15 (2020.01.12)
 
-estado( [[A,B,C,D],   % Nessa situação, posso ter qualquer número em qualquer lugar, com exceção no espaço branco
-	 [E,F,G,H],
-	 [I,J,K,L],
-	 [M,N,O,v]]). % v é espaço vazio
-
 estadoFinal([[1, 2, 3, 4],
              [5, 6, 7, 8],
 	     [9,10,11,12],
-	     [13,14,15,v]]).
+	     [13,14,15,v]]). % v é espaço vazio
+
+estado([[A,B,C,D],           % Nessa situação, posso ter qualquer número em qualquer lugar, com exceção no espaço branco
+	[E,F,G,H],
+	[I,J,K,L],
+	[M,N,O,v]]).
 
 % Movimentos:
 % Nessa parte, a ação de movimentar é do tipo movimento(X,Y), onde X é o estado antes desse movimento e Y é o estado depois
