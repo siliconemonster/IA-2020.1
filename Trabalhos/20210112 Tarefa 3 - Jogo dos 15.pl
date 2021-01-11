@@ -40,3 +40,18 @@ esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,v],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[I,J,v,
 esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,v,N,O]], [[A,B,C,D],[E,F,G,H],[I,J,K,L],[v,M,N,O]]).
 esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]], [[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,v,N,O]]).
 esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,O,v]], [[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]]).
+
+
+% andar com o vazio para cima
+cima([[A,B,C,D],[v,E,F,G],[H,I,J,K],[L,M,N,O]], [[v,B,C,D],[A,E,F,G],[H,I,J,K],[L,M,N,O]]).
+cima([[A,B,C,D],[E,v,F,G],[H,I,J,K],[L,M,N,O]], [[A,v,C,D],[E,B,F,G],[H,I,J,K],[L,M,N,O]]).
+cima([[A,B,C,D],[E,F,v,G],[H,I,J,K],[L,M,N,O]], [[A,B,v,D],[E,F,C,G],[H,I,J,K],[L,M,N,O]]).
+cima([[A,B,C,D],[E,F,G,v],[H,I,J,K],[L,M,N,O]], [[A,B,C,v],[E,F,G,D],[H,I,J,K],[L,M,N,O]]).
+cima([[A,B,C,D],[E,F,G,H],[v,I,J,K],[L,M,N,O]], [[A,B,C,D],[v,F,G,H],[E,I,J,K],[L,M,N,O]]).
+cima([[A,B,C,D],[E,F,G,H],[I,v,J,K],[L,M,N,O]], [[A,B,C,D],[E,v,G,H],[I,F,J,K],[L,M,N,O]]).
+cima([[A,B,C,D],[E,F,G,H],[I,J,v,K],[L,M,N,O]], [[A,B,C,D],[E,F,v,H],[I,J,G,K],[L,M,N,O]]).
+cima([[A,B,C,D],[E,F,G,H],[I,J,K,v],[L,M,N,O]], [[A,B,C,D],[E,F,G,v],[I,J,K,H],[L,M,N,O]]).
+cima([[A,B,C,D],[E,F,G,H],[I,J,K,L],[v,M,N,O]], [[A,B,C,D],[E,F,G,H],[v,J,K,L],[I,M,N,O]]).
+cima([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,v,N,O]], [[A,B,C,D],[E,F,G,H],[I,v,K,L],[M,J,N,O]]).
+cima([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]], [[A,B,C,D],[E,F,G,H],[I,J,v,L],[M,N,K,O]]).
+cima([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,O,v]], [[A,B,C,D],[E,F,G,H],[I,J,K,v],[M,N,O,L]]).
