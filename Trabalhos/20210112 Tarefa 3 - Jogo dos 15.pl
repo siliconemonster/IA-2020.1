@@ -29,17 +29,17 @@ direita([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]], [[A,B,C,D],[E,F,G,H],[I,J,K,L
 
 % andar com o vazio para a direita
 esquerda([[A,v,B,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]], [[v,A,B,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]]).
-esquerda([[A,B,v,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]],	[[A,v,B,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]]).
-esquerda([[A,B,C,v],[D,E,F,G],[H,I,J,K],[L,M,N,O]],	[[A,B,v,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]]).
-esquerda([[A,B,C,D],[E,v,F,G],[H,I,J,K],[L,M,N,O]],	[[A,B,C,D],[v,E,F,G],[H,I,J,K],[L,M,N,O]]).
-esquerda([[A,B,C,D],[E,F,v,G],[H,I,J,K],[L,M,N,O]],	[[A,B,C,D],[E,v,F,G],[H,I,J,K],[L,M,N,O]]).
-esquerda([[A,B,C,D],[E,F,G,v],[H,I,J,K],[L,M,N,O]],	[[A,B,C,D],[E,F,v,G],[H,I,J,K],[L,M,N,O]]).
-esquerda([[A,B,C,D],[E,F,G,H],[I,v,J,K],[L,M,N,O]],	[[A,B,C,D],[E,F,G,H],[v,I,J,K],[L,M,N,O]]).
-esquerda([[A,B,C,D],[E,F,G,H],[I,J,v,K],[L,M,N,O]],	[[A,B,C,D],[E,F,G,H],[I,v,J,K],[L,M,N,O]]).
-esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,v],[L,M,N,O]],	[[A,B,C,D],[E,F,G,H],[I,J,v,K],[L,M,N,O]]).
-esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,v,N,O]],	[[A,B,C,D],[E,F,G,H],[I,J,K,L],[v,M,N,O]]).
-esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]],	[[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,v,N,O]]).
-esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,O,v]],	[[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]]).
+esquerda([[A,B,v,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]], [[A,v,B,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]]).
+esquerda([[A,B,C,v],[D,E,F,G],[H,I,J,K],[L,M,N,O]], [[A,B,v,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]]).
+esquerda([[A,B,C,D],[E,v,F,G],[H,I,J,K],[L,M,N,O]], [[A,B,C,D],[v,E,F,G],[H,I,J,K],[L,M,N,O]]).
+esquerda([[A,B,C,D],[E,F,v,G],[H,I,J,K],[L,M,N,O]], [[A,B,C,D],[E,v,F,G],[H,I,J,K],[L,M,N,O]]).
+esquerda([[A,B,C,D],[E,F,G,v],[H,I,J,K],[L,M,N,O]], [[A,B,C,D],[E,F,v,G],[H,I,J,K],[L,M,N,O]]).
+esquerda([[A,B,C,D],[E,F,G,H],[I,v,J,K],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[v,I,J,K],[L,M,N,O]]).
+esquerda([[A,B,C,D],[E,F,G,H],[I,J,v,K],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[I,v,J,K],[L,M,N,O]]).
+esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,v],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[I,J,v,K],[L,M,N,O]]).
+esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,v,N,O]], [[A,B,C,D],[E,F,G,H],[I,J,K,L],[v,M,N,O]]).
+esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]], [[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,v,N,O]]).
+esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,O,v]], [[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]]).
 
 % andar com o vazio para cima
 cima([[A,B,C,D],[v,E,F,G],[H,I,J,K],[L,M,N,O]], [[v,B,C,D],[A,E,F,G],[H,I,J,K],[L,M,N,O]]).
