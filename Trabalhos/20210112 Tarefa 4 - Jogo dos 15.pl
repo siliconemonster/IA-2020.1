@@ -78,7 +78,7 @@ acao(Antes, cima, Depois, 1) :- cima(Antes, Depois).
 acao(Antes, baixo, Depois, 1) :- baixo(Antes, Depois).
 
 
-% Heurísticas - - - PREDICADO PARA APLICAR HEURÍSTICAS Y DAR COMO RESULTADO Fn
+% Heurísticas
 fn(NoAtual, Fn, heuristica1) :-
     	NoAtual = no(EstadoAtual,_,_,Gn),
 	heuristica1(EstadoAtual, Hn),
@@ -92,14 +92,14 @@ fn(NoAtual, Fn, heuristica2) :-
 % 1 - Número de peças fora do lugar
 heuristica1(Atual, Hn) :-
 	estadoFinal(Final),
-	flatten(Atual, AtualFlatten),
-	flatten(Final, FinalFlatten),
-	foraLugar(AtualFlatten,FinalFlatten,Hn).
+	flatten(Atual, AtualFlatten),             	% usa o flatten para a lista ficar sem colchetes e facilitar a contagem de 
+	flatten(Final, FinalFlatten),			% quantos nós fora do lugar há
+	foraLugar(AtualFlatten, FinalFlatten, Hn).
 
 foraLugar([], [], 0). 
-foraLugar([0|T1], [0|T2], Numero) :- foraLugar(T1, T2, Numero). 
-foraLugar([H|T1], [H|T2], Numero) :- foraLugar(T1, T2, Numero). 
-foraLugar([H1|T1], [H2|T2], Numero) :-
+foraLugar([0|T1], [0|T2], Dist) :- foraLugar(T1, T2, Dist).  %%%%%%%%%%%% conferir esse 0 %%%%%%%%%%%%%
+foraLugar([H|T1], [H|T2], Dist) :- foraLugar(T1, T2, Dist). 
+foraLugar([H1|T1], [H2|T2], Dist) :-
 	H1 \== H2,
-	foraLugar(T1, T2, N),
-	Numero is N+1.
+	foraLugar(T1, T2, D),
+	Dist is D + 1.
