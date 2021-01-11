@@ -1,4 +1,4 @@
-% Tarefa 3 - Jogo dos 15 (2021.01.12)
+% Tarefa 3 - Jogo dos 15 (2020.01.12)
 
 estado( [[A,B,C,D],   % Nessa situação, posso ter qualquer número em qualquer lugar, com exceção no espaço branco
 	 [E,F,G,H],
@@ -11,7 +11,7 @@ estadoFinal([[1, 2, 3, 4],
 	     [13,14,15,v]]).
 
 % Movimentos:
-% Nessa parte, a ação de movimentar é do tipo ação(X,Y), onde X é o estado antes dessa ação e Y é o estado depois
+% Nessa parte, a ação de movimentar é do tipo movimento(X,Y), onde X é o estado antes desse movimento e Y é o estado depois
 	
 % andar com o vazio para a direita
 direita([[v,A,B,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]], [[A,v,B,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]]).
@@ -27,19 +27,19 @@ direita([[A,B,C,D],[E,F,G,H],[I,J,K,L],[v,M,N,O]], [[A,B,C,D],[E,F,G,H],[I,J,K,L
 direita([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,v,N,O]], [[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]]).
 direita([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]], [[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,O,v]]).
 
-% andar com o vazio para a esquerda
+% andar com o vazio para a direita
 esquerda([[A,v,B,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]], [[v,A,B,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]]).
-esquerda([[A,B,v,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]], [[A,v,B,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]]).
-esquerda([[A,B,C,v],[D,E,F,G],[H,I,J,K],[L,M,N,O]], [[A,B,v,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]]).
-esquerda([[A,B,C,D],[E,v,F,G],[H,I,J,K],[L,M,N,O]], [[A,B,C,D],[v,E,F,G],[H,I,J,K],[L,M,N,O]]).
-esquerda([[A,B,C,D],[E,F,v,G],[H,I,J,K],[L,M,N,O]], [[A,B,C,D],[E,v,F,G],[H,I,J,K],[L,M,N,O]]).
-esquerda([[A,B,C,D],[E,F,G,v],[H,I,J,K],[L,M,N,O]], [[A,B,C,D],[E,F,v,G],[H,I,J,K],[L,M,N,O]]).
-esquerda([[A,B,C,D],[E,F,G,H],[I,v,J,K],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[v,I,J,K],[L,M,N,O]]).
-esquerda([[A,B,C,D],[E,F,G,H],[I,J,v,K],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[I,v,J,K],[L,M,N,O]]).
-esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,v],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[I,J,v,K],[L,M,N,O]]).
-esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,v,N,O]], [[A,B,C,D],[E,F,G,H],[I,J,K,L],[v,M,N,O]]).
-esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]], [[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,v,N,O]]).
-esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,O,v]], [[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]]).
+esquerda([[A,B,v,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]],	[[A,v,B,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]]).
+esquerda([[A,B,C,v],[D,E,F,G],[H,I,J,K],[L,M,N,O]],	[[A,B,v,C],[D,E,F,G],[H,I,J,K],[L,M,N,O]]).
+esquerda([[A,B,C,D],[E,v,F,G],[H,I,J,K],[L,M,N,O]],	[[A,B,C,D],[v,E,F,G],[H,I,J,K],[L,M,N,O]]).
+esquerda([[A,B,C,D],[E,F,v,G],[H,I,J,K],[L,M,N,O]],	[[A,B,C,D],[E,v,F,G],[H,I,J,K],[L,M,N,O]]).
+esquerda([[A,B,C,D],[E,F,G,v],[H,I,J,K],[L,M,N,O]],	[[A,B,C,D],[E,F,v,G],[H,I,J,K],[L,M,N,O]]).
+esquerda([[A,B,C,D],[E,F,G,H],[I,v,J,K],[L,M,N,O]],	[[A,B,C,D],[E,F,G,H],[v,I,J,K],[L,M,N,O]]).
+esquerda([[A,B,C,D],[E,F,G,H],[I,J,v,K],[L,M,N,O]],	[[A,B,C,D],[E,F,G,H],[I,v,J,K],[L,M,N,O]]).
+esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,v],[L,M,N,O]],	[[A,B,C,D],[E,F,G,H],[I,J,v,K],[L,M,N,O]]).
+esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,v,N,O]],	[[A,B,C,D],[E,F,G,H],[I,J,K,L],[v,M,N,O]]).
+esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]],	[[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,v,N,O]]).
+esquerda([[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,O,v]],	[[A,B,C,D],[E,F,G,H],[I,J,K,L],[M,N,v,O]]).
 
 % andar com o vazio para cima
 cima([[A,B,C,D],[v,E,F,G],[H,I,J,K],[L,M,N,O]], [[v,B,C,D],[A,E,F,G],[H,I,J,K],[L,M,N,O]]).
@@ -68,3 +68,10 @@ baixo([[A,B,C,D],[E,F,G,H],[v,I,J,K],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[L,I,J,K],
 baixo([[A,B,C,D],[E,F,G,H],[I,v,J,K],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[I,M,J,K],[L,v,N,O]]).
 baixo([[A,B,C,D],[E,F,G,H],[I,J,v,K],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[I,J,N,K],[L,M,v,O]]).
 baixo([[A,B,C,D],[E,F,G,H],[I,J,K,v],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[I,J,K,O],[L,M,N,v]]).
+
+
+% Regra para a movimentação que se deseja fazer
+acao(Antes, direita, Depois, 1)	:- direita(Antes, Depois).
+acao(Antes, esquerda, Depois, 1) :- esquerda(Antes, Depois).
+acao(Antes, cima, Depois, 1) :- cima(Antes, Depois).
+acao(Antes, baixo, Depois, 1) :- baixo(Antes, Depois).
