@@ -71,6 +71,7 @@ baixo([[A,B,C,D],[E,F,G,H],[I,J,K,v],[L,M,N,O]], [[A,B,C,D],[E,F,G,H],[I,J,K,O],
 
 
 % Regra para a movimentação que se deseja fazer
+% Movimentação tem custo 1
 acao(Antes, direita, Depois, 1)	:- direita(Antes, Depois).
 acao(Antes, esquerda, Depois, 1) :- esquerda(Antes, Depois).
 acao(Antes, cima, Depois, 1) :- cima(Antes, Depois).
