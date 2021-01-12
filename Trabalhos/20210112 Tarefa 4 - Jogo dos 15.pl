@@ -188,7 +188,7 @@ contaInversoesElemento(Elem, [H|T], Num) :-
     contaInversoesElemento(Elem, T, Num).
 contaInversoesElemento(Elem, [H|T], Num) :- 
     Elem > H,
-    contaInversaoesElemento(Elem, T, Num1),
+    contaInversoesElemento(Elem, T, Num1),
     Num is Num1 + 1.
 
 
