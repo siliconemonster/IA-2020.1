@@ -118,7 +118,7 @@ heuristica2(Atual, Hn) :-
      	pos2x1(_2x1,De), pos2x2(_2x2,Df), pos2x3(_2x3,Dg), pos2x4(_2x4,Dh),
      	pos3x1(_3x1,Di), pos3x2(_3x2,Dj), pos3x3(_3x3,Dk), pos3x4(_3x4,Dl),
      	pos4x1(_4x1,Dm), pos4x2(_4x2,Dn), pos4x3(_4x3,Do), pos4x4(_4x4,Dp),
-     	Hn is Pa + Pb + Pc + Pd + Pe + Pf + Pg + Ph + Pi + Pj + Pk + Pl + Pm + Pn + Po + Pp.
+     	Hn is Da + Db + Dc + Dd + De + Df + Dg + Dh + Di + Dj + Dk + Dl + Dm + Dn + Do + Dp.
 
 % posIxJ(m,n) me diz que na posição IxJ, a célula m está a n de distância do seu devido lugar
 % Como diz a distância Manhattan, n é calculado como |x1 - x2| + |y1 + y2|
