@@ -150,6 +150,14 @@ pos4x4(1,6). pos4x4(2,5). pos4x4(3,4). pos4x4(4,3). pos4x4(5,5). pos4x4(6,4). po
 %%%%%%%%%%%%%%%%%%%%%%%%%% ALGORITMOS %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+% Regra para saber em que linha se encontra o espaço vazio
+linhaVazio([H|T], 0) :-
+    member(99, H), !.
+linhaVazio([H|T], IndiceLinha) :-
+    linhaVazio(T, IndiceLinha1),
+    IndiceLinha is IndiceLinha1 + 1.
+
+
 % Regras para contar quantas inversões há, de acordo com o link de referência
 % A lista de entrada de contaInversoes precisa ser flatten!!
 contaInversoes([], 0).
