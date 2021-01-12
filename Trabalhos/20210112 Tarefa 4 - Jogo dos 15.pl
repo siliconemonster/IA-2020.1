@@ -1,4 +1,4 @@
-% Tarefa 4 - Jogo dos 15 (2021.01.12)
+% Tarefa 4 - Jogo dos 15 (2021.01.12) - !!!incompleto!!!
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% MODELAGEM %%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -138,3 +138,54 @@ pos4x1(1,3). pos4x1(2,4). pos4x1(3,5). pos4x1(4,6). pos4x1(5,2). pos4x1(6,3). po
 pos4x2(1,4). pos4x2(2,3). pos4x2(3,4). pos4x2(4,5). pos4x2(5,3). pos4x2(6,2). pos4x2(7,3). pos4x2(8,4). pos4x2(9,2). pos4x2(10,1). pos4x2(11,2). pos4x2(12,3). pos4x2(13,1). pos4x2(14,0). pos4x2(15,1). pos4x2(v,2).
 pos4x3(1,5). pos4x3(2,4). pos4x3(3,3). pos4x3(4,4). pos4x3(5,4). pos4x3(6,3). pos4x3(7,2). pos4x3(8,3). pos4x3(9,3). pos4x3(10,2). pos4x3(11,1). pos4x3(12,2). pos4x3(13,2). pos4x3(14,1). pos4x3(15,0). pos4x3(v,1).
 pos4x4(1,6). pos4x4(2,5). pos4x4(3,4). pos4x4(4,3). pos4x4(5,5). pos4x4(6,4). pos4x4(7,3). pos4x4(8,2). pos4x4(9,4). pos4x4(10,3). pos4x4(11,2). pos4x4(12,1). pos4x4(13,3). pos4x4(14,2). pos4x4(15,1). pos4x4(v,0).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% ALGORITMOS %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+objetivo(No, Alvo) :- 0 is No mod Alvo.
+
+
+%encontrei essa regra na internet
+h(No, Hvalor, Alvo) :-     % Não sei bem como adaptar isso para as minhas heurísticas
+    objetivo(No, Alvo), !,
+    Hvalor is 0; Hvalor is 1/No.
+
+
+%encontrei essa regra na internet
+menos([No1, Custo1], [No2, Custo2], Alvo) :-
+	h(No1, Hvalor1, Alvo),
+    h(No2, Hvalor2, Alvo),
+	F1 is Custo1 + Hvalor1,
+    F2 is Custo2 + Hvalor2,
+	F1 =< F2.
+
+
+insere(X,[],[X],_).
+insere(X,[Y|T],[Y|NT],Alvo):- 
+    menos(Y,X,Alvo),
+    insere(X,T,NT,Alvo).
+
+insere(X,[Y|T],[X,Y|T],Alvo):-
+    menos(X,Y,Alvo).
+
+
+addFronteira([],X,X,_).
+addFronteira([Head|X],Resto,Novo,Alvo) :-
+    insere(Head,Resto,Result,Alvo),
+	addFronteira(X,Result,Novo,Alvo).
+
+
+%encontrei essa regra na internet
+arc([N,Cost],M,Seed,_) :- A is N*Seed, B is Cost+1, M = [A,B].
+arc([N,Cost],M,Seed,_) :- A is N*Seed + 1, B is Cost+2, M = [A,B].
+
+
+busca([[No,Custo] | FResto], _, Alvo, [No, Custo]) :- objetivo(No, Alvo).
+busca([[No,Custo] | FResto], Seed, Alvo, Found) :-
+	setof(X, arc([No, Custo], X, Seed, Alvo), FNo),
+	addFronteira(FNo, FResto, Result, Alvo),
+	busca(Result, Seed, Alvo, Found).
+
+% a star search
+aEstrela(Start,Seed,Target,Found) :- busca([[Start,0]|[]],Seed,Target,Found).
