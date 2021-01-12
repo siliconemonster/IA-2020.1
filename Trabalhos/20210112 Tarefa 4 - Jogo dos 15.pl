@@ -187,5 +187,5 @@ busca([[No,Custo] | FResto], Seed, Alvo, Found) :-
 	addFronteira(FNo, FResto, Result, Alvo),
 	busca(Result, Seed, Alvo, Found).
 
-% a star search
+
 aEstrela(Start,Seed,Target,Found) :- busca([[Start,0]|[]],Seed,Target,Found).
