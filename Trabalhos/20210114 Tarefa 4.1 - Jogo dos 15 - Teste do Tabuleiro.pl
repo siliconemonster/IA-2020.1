@@ -3,7 +3,9 @@
  * Nesta tarefa constará apenas a parte do código relativa a esse teste.
  * Referência tirada de: https://www.geeksforgeeks.org/check-instance-15-puzzle-solvable/
  *
- * A consulta deve ser do tipo isSolvable(estadoInicial2(X)).
+ * A consulta deve ser dos tipos:
+ * ?- estadoInicial1(Tabuleiro), isSolvable(Tabuleiro). ou
+ * ?- isSolvable([[6,13,7,10],[8,9,11,99],[15,2,12,5],[14,3,1,4]]).
  */
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% MODELAGEM %%%%%%%%%%%%%%%%%%%%%%%%%%
