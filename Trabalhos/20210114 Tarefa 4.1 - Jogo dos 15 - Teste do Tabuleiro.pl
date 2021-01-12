@@ -3,7 +3,7 @@
  * Nesta tarefa constará apenas a parte do código relativa a esse teste.
  * Referência tirada de: https://www.geeksforgeeks.org/check-instance-15-puzzle-solvable/
  *
- * A consulta deve ser do tipo isSolvable(estadoInicial2).
+ * A consulta deve ser do tipo isSolvable(estadoInicial2(X)).
  */
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% MODELAGEM %%%%%%%%%%%%%%%%%%%%%%%%%%
