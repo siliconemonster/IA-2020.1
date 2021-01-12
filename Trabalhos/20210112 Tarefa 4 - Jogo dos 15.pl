@@ -150,6 +150,21 @@ pos4x4(1,6). pos4x4(2,5). pos4x4(3,4). pos4x4(4,3). pos4x4(5,5). pos4x4(6,4). po
 %%%%%%%%%%%%%%%%%%%%%%%%%% ALGORITMOS %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+% Checa se existe caminho do estado inicial ao estado final
+isSolvable(Tabuleiro) :-
+	linhaVazio(Tabuleiro, Indice),
+	0 =:= Indice mod 2,
+	flatten(Tabuleiro, TabuleiroFlatten),
+	contaInversoes(TabuleiroFlatten, Num), !,
+	1 =:= Num mod 2.
+isSolvable(Tabuleiro) :-
+	linhaVazio(Tabuleiro, Indice),
+	1 =:= Indice mod 2,
+	flatten(Tabuleiro, TabuleiroFlatten),
+	contaInversoes(TabuleiroFlatten, Num), !,
+	0 =:= Num mod 2.
+
+
 % Regra para saber em que linha se encontra o espaço vazio
 linhaVazio([H|T], 0) :-
     member(99, H), !.
