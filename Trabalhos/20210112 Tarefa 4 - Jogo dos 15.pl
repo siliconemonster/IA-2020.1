@@ -150,6 +150,28 @@ pos4x4(1,6). pos4x4(2,5). pos4x4(3,4). pos4x4(4,3). pos4x4(5,5). pos4x4(6,4). po
 %%%%%%%%%%%%%%%%%%%%%%%%%% ALGORITMOS %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+% Regras para contar quantas inversões há, de acordo com o link de referência
+% A lista de entrada de contaInversoes precisa ser flatten!!
+contaInversoes([], 0).
+contaInversoes([H|T], NumInversoes) :-
+    contaInversoesElemento(H, T, Num),
+    contaInversoes(T, NumInversoes1),
+    NumInversoes is NumInversoes1 + Num.
+    
+contaInversoesElemento(Elem, [], 0).
+contaInversoesElemento(99, _, 0). % espaço vazio
+contaInversoesElemento(Elem, [H|T], Num) :-
+    Elem < H,
+    contaInversoesElemento(Elem, T, Num).
+contaInversoesElemento(Elem, [H|T], Num) :- 
+    Elem > H,
+    contaInversaoesElemento(Elem, T, Num1),
+    Num is Num1 + 1.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% ALGORITMOS QUE SERÃO APAGADOS PROVAVELMENTE %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 objetivo(No, Alvo) :- 0 is No mod Alvo.
 
 
