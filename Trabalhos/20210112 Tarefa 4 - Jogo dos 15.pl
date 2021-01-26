@@ -192,19 +192,17 @@ contaInversoesElemento(Elem, [H|T], Num) :-
     Num is Num1 + 1.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%% ALGORITMOS QUE SERÃO APAGADOS PROVAVELMENTE %%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%% Busca %%%%%%%%%%%%%%%%%%%%%%%%%%
+% objtive muita ajuda da internet e do monitor
 
 objetivo(No, Alvo) :- 0 is No mod Alvo.
 
 
-%encontrei essa regra na internet
 h(No, Hvalor, Alvo) :-     % Não sei bem como adaptar isso para as minhas heurísticas
     objetivo(No, Alvo), !,
     Hvalor is 0; Hvalor is 1/No.
 
 
-%encontrei essa regra na internet
 menos([No1, Custo1], [No2, Custo2], Alvo) :-
 	h(No1, Hvalor1, Alvo),
     h(No2, Hvalor2, Alvo),
@@ -228,16 +226,23 @@ addFronteira([Head|X],Resto,Novo,Alvo) :-
 	addFronteira(X,Result,Novo,Alvo).
 
 
-%encontrei essa regra na internet
-arc([N,Cost],M,Seed,_) :- A is N*Seed, B is Cost+1, M = [A,B].
-arc([N,Cost],M,Seed,_) :- A is N*Seed + 1, B is Cost+2, M = [A,B].
+arco([No, Custo],M,Seed,_) :- 
+    A is No * Seed,
+    B is Custo + 1,
+    M = [A,B].
+arco([No, Custo],M,Seed,_) :-
+    A is No * Seed + 1,
+    B is Custo + 2,
+    M = [A,B].
 
 
 busca([[No,Custo] | FResto], _, Alvo, [No, Custo]) :- objetivo(No, Alvo).
 busca([[No,Custo] | FResto], Seed, Alvo, Found) :-
-	setof(X, arc([No, Custo], X, Seed, Alvo), FNo),
+	setof(X, arco([No, Custo], X, Seed, Alvo), FNo),
 	addFronteira(FNo, FResto, Result, Alvo),
 	busca(Result, Seed, Alvo, Found).
 
 
-aEstrela(Start,Seed,Target,Found) :- busca([[Start,0]|[]],Seed,Target,Found).
+aEstrela(TabuleiroInicial,Seed,Alvo,Found) :- 
+    isSolvable(TabuleiroInicial), % Checa se o tabuleiro dado é resolvível (tem caminho até a solução)
+    busca([[TabuleiroInicial,0]|[]],Seed,Alvo,Found).
