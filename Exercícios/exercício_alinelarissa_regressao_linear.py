@@ -82,6 +82,8 @@ plt.plot(X, Y_pred_media, color='gray')
 plt.savefig('reta_prevista.png')
 plt.show()
 
+print("Erro quadrático médio: ", mean_squared_error(Y, Y_pred_media))
+
 """<h2>1. Regressão Linear
 
 <h3>a) Refaça o exemplo de regressão linear usando o modelo de regressão linear implementado pelo scikit (linear_model). Indique qual o erro quadrático médio.
@@ -90,6 +92,10 @@ plt.show()
 regressao = LinearRegression()
 regressao.fit(X, Y)
 yPrevisao = regressao.predict(X) # é a linha que indica os valores
+
+plt.scatter(X, Y, color='blue')
+plt.scatter(X, yPrevisao,marker='+',color='red')
+plt.plot(X, yPrevisao, color='gray')
 
 # O score retorna o coeficiente de determinação R² da previsão (???)
 print("Score:", regressao.score(X, Y))
@@ -134,7 +140,6 @@ Julguei esses valores baixos, e por consequência, bons.
 multi = pd.read_csv('/content/drive/MyDrive/trab_regressão_linear/multi.csv',header=0)
 print(multi)
 
-print("")
 print("X1 x X5")
 plt.scatter(multi['X1'], multi['X5'])
 plt.xlabel("Eixo X1")
@@ -142,7 +147,7 @@ plt.ylabel("Eixo X5")
 plt.savefig('X1xX5.png')
 plt.show()
 
-print("")
+print()
 print("X2 x X5")
 plt.scatter(multi['X2'], multi['X5'])
 plt.xlabel("Eixo X1")
@@ -150,7 +155,7 @@ plt.ylabel("Eixo X5")
 plt.savefig('X2xX5.png')
 plt.show()
 
-print("")
+print()
 print("X3 x X5")
 plt.scatter(multi['X3'], multi['X5'])
 plt.xlabel("Eixo X1")
@@ -158,7 +163,7 @@ plt.ylabel("Eixo X5")
 plt.savefig('X3xX5.png')
 plt.show()
 
-print("")
+print()
 print("X4 x X5")
 plt.scatter(multi['X4'], multi['X5'])
 plt.xlabel("Eixo X4")
@@ -166,10 +171,69 @@ plt.ylabel("Eixo X5")
 plt.savefig('X4xX5.png')
 plt.show()
 
-"""X4 x X5 parece ter a relação mais linear delas
+"""X4 x X5 parece ter a relação mais linear delas"""
 
-<h3>b) Utilizando os atributos que possuem uma relação linear com X5, utilize a regressão linear para determinar os coeficientes da equação correspondentes. Utilize o modelo de regressão linear do scikit e todo o conjunto de dados no treinamento.
-"""
+X = multi.iloc[:, 2].values.reshape(-1, 1) 
+Y = multi.iloc[:, 4].values.reshape(-1, 1) 
+
+mediaX  = np.mean(X)
+mediaX2 = np.mean(X**2)
+mediaY  = np.mean(Y)
+mediaY2 = np.mean(Y**2)
+mediaXY = np.mean(X*Y)
+
+teta0 = (mediaY*mediaX2 - mediaX*mediaXY)/(mediaX2 - (mediaX)**2)
+teta1 =(mediaXY - mediaX*mediaY)/(mediaX2 - (mediaX)**2)
+
+# plotando os pontos previstos e a reta
+Y_pred_media = teta0+teta1*X
+
+plt.scatter(X, Y,marker='o',color='blue')  #pontos originais
+plt.scatter(X, Y_pred_media,marker='+',color='red') #pontos previstos
+plt.savefig('pontos_originais_previstos.png')
+plt.show()
+
+plt.scatter(X, Y,marker='o',color='blue')  #pontos originais
+plt.scatter(X, Y_pred_media,marker='+',color='red') #pontos previstos
+plt.plot(X, Y_pred_media, color='gray')
+plt.savefig('reta_prevista.png')
+plt.show()
+print("Erro quadrático médio: ", mean_squared_error(Y, Y_pred_media))
+
+X = multi.iloc[:, 2].values.reshape(-1, 1) 
+Y = multi.iloc[:, 4].values.reshape(-1, 1) 
+
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.3)
+
+mediaX  = np.mean(X_train)
+mediaX2 = np.mean(X_train**2)
+mediaY  = np.mean(Y_train)
+mediaY2 = np.mean(Y_train**2)
+mediaXY = np.mean(X_train*Y_train)
+
+teta0 = (mediaY*mediaX2 - mediaX*mediaXY)/(mediaX2 - (mediaX)**2)
+teta1 =(mediaXY - mediaX*mediaY)/(mediaX2 - (mediaX)**2)
+
+Y_pred_media = teta0+teta1*X_test
+
+plt.scatter(X, Y,marker='o',color='blue')  #pontos originais
+plt.scatter(X_test, Y_pred_media,marker='+',color='red') #pontos previstos
+plt.savefig('pontos_originais_previstos.png')
+plt.show()
+
+plt.scatter(X_train, Y_train,marker='o',color='blue')  #pontos originais
+plt.scatter(X_test, Y_pred_media,marker='+',color='red') #pontos previstos
+plt.savefig('pontos_originais_previstos.png')
+plt.show()
+
+plt.scatter(X_train, Y_train,marker='o',color='blue')  #pontos originais
+plt.scatter(X_test, Y_pred_media,marker='+',color='red') #pontos previstos
+plt.plot(X_test, Y_pred_media, color='gray')
+plt.savefig('reta_prevista.png')
+plt.show()
+print("Erro quadrático médio: ", mean_squared_error(Y_test, Y_pred_media))
+
+"""<h3>b) Utilizando os atributos que possuem uma relação linear com X5, utilize a regressão linear para determinar os coeficientes da equação correspondentes. Utilize o modelo de regressão linear do scikit e todo o conjunto de dados no treinamento."""
 
 feature_cols = ['X3', 'X4']
 X = multi[feature_cols]
