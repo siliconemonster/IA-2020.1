@@ -291,5 +291,9 @@ print("Erro quadrático médio: ", mean_squared_error(Y, y_pred)) #quais parâme
 
 """Vimos alguns resultados do Kagle, como o https://www.kaggle.com/furkanuysl/regression-with-scikit-learn-beginner e percebemos que o usuário também usou o GDP per capita para fazer a regressão linear, porém usou um método diferente para calcular o erro. 
 
-Era esperado que o erro dos atributos, com exceção do Overall rank, dessem maiores, por conta da relação deles com Score ser "pouco" linear. 
+Era esperado que o erro dos atributos, com exceção do Overall rank, dessem maiores, por conta da relação deles com Score ser "pouco" linear.
+
+Fontes:
++ http://www.leg.ufpr.br/~silvia/CE701/node79.html
++ https://pt.wikipedia.org/wiki/Coeficiente_de_correla%C3%A7%C3%A3o_de_Pearson
 """
